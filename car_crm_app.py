@@ -180,7 +180,7 @@ car_description = st.text_area("Describe the car you're trying to source (year, 
 if st.button("Generate Pitch"):
     if car_description:
         pitch = f"Hi, I'm looking for a vehicle with the following specs: {car_description}. If you have something that fits or close, let me know. Cash buyer, ready to move fast."
-        st.markdown(f"**Generated Pitch:**
+        st.markdown(f"**Generated Pitch:**\n\n{pitch}")
 
 {pitch}")
         st.download_button("📄 Download Pitch", data=pitch, file_name="Pitch.txt", mime="text/plain")
@@ -193,4 +193,6 @@ mmr_input = st.number_input("Enter MMR Value ($)", min_value=0.0, step=100.0)
 if mmr_input:
     low_offer = mmr_input * 0.85
     high_offer = mmr_input * 0.92
+    st.markdown(f"**Target Buy Price Range (8–15% below MMR):** 💰 **${low_offer:,.2f} – ${high_offer:,.2f}**")
+
     st.markdown(f"**Target Buy Price Range (8–15% below MMR):** 💰 **${low_offer:,.2f} – ${high_offer:,.2f}**")
